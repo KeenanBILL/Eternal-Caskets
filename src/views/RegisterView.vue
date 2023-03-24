@@ -48,14 +48,6 @@
 
             <div class="input-box">
 
-            <span class="form-label">Email Address</span>
-
-            <input type="password" class="form-control" name="name" required v-model="payload.emailAdd">
-
-            </div>
-
-            <div class="input-box">
-
             <span class="form-label">User Role</span>
 
             <input type="text" class="form-control" name="name" required v-model="payload.userRole">
@@ -64,9 +56,9 @@
 
             <div class="input-box">
 
-            <span class="form-label">Validate Password</span>
+            <span class="form-label">Email Address</span>
 
-            <input type="text" class="form-control" name="name" required v-model="payload.confirm_pass">
+            <input type="text" class="form-control" name="name" required v-model="payload.emailAdd">
 
             </div>
 
@@ -98,16 +90,15 @@
                     userRole:"user",
                     userProf:"https://i.postimg.cc/fLG4sjtQ/6596121-removebg-preview.png"
                 },
-                confirm_pass: ""
             }
         },
         methods: {
             addUser() {
-                if(this.payload.userPass !== this.confirm_pass) {
+                if(this.payload) {
                     console.log("Password not valid.");
                 }
             else {
-                this.$store.dispatch('addUser', this.payload);
+                this.$store.dispatch("addUser", this.payload);
             }
         }
         

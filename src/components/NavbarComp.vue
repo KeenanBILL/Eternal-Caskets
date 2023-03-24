@@ -62,7 +62,9 @@
 
             <form class="d-flex" role="search">
 
-                <button class="btn"><i class="bi bi-suit-heart-fill"></i></button>
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+
+                <button class="btn btn-outline-success" type="submit">Search</button>
 
                 <button class="btn"><i class="bi bi-cart-fill"></i></button>
 

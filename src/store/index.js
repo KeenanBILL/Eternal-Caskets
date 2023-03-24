@@ -1,10 +1,10 @@
 import axios from "axios";
 import { createStore } from "vuex";
 import router from "@/router"; 
-import { useCookies } from "vue3-cookies";
-const { cookies } = useCookies();
+// import { useCookies } from "vue3-cookies";
+// const { cookies } = useCookies();
 
-const renderURL = "https://eternal-caskets.onrender.com/";
+const renderURL = "https://capstone-project-t9u3.onrender.com/";
 
 export default createStore({
   state: {
@@ -94,7 +94,7 @@ export default createStore({
         context.commit("setMessage", err);
       }
     },
-    async addUser(context, payload) {
+    async addUser(payload) {
       const res = await axios.post(`${renderURL}register`, payload);
       const { msg, err } = await res.data;
       if (msg) {
@@ -105,11 +105,11 @@ export default createStore({
     },
     async Login(context, payload) {
       const res = await axios.post(`${renderURL}login`, payload);
-      const { jwToken, result, msg, err } = await res.data;
+      const { result, msg, err } = await res.data;
       if (result) {
         context.commit('setUser', result);
         context.commit("setMessage", msg);
-        cookies.set("User confirmed.", jwToken);
+        // cookies.set("User confirmed.", jwToken);
         router.push("/");
       } else if(err) {
         context.commit("setMessage", err)
