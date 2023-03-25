@@ -94,14 +94,41 @@ export default createStore({
         context.commit("setMessage", err);
       }
     },
-    async addUser(payload) {
-      const res = await axios.post(`${renderURL}register`, payload);
-      const { msg, err } = await res.data;
-      if (msg) {
-        router.push("/login");
+    async removeUser(context, id) {
+      const res = await axios.delete(`${renderURL}users/${id}`);
+      const { results, err } = await res.data;
+      if (results) {
+        context.commit("setUser", results);
+        context.commit('fetchUsers', results);
       } else {
-        alert(err);
+        context.commit("setMessage", err);
       }
+    },
+    async addUser(context, payload) {
+      console.log(payload);
+      fetch(`https://capstone-project-t9u3.onrender.com/register`, {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+        body: JSON.stringify(payload),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          router.push('/login')
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      // const res = await axios.post(`${renderURL}register`, payload);
+      // const { msg, err } = await res.data;
+      // if (msg) {
+      //   router.push("/login");
+      // } else {
+      //   alert(err);
+      // }
     },
     async Login(context, payload) {
       const res = await axios.post(`${renderURL}login`, payload);

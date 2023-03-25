@@ -97,6 +97,18 @@ methods: {
 
 <style scoped>
 
+.btn{
+    border-radius: 25px;
+    background-color: #62c5ec;
+    color: #05668D;
+    transition: all 0.4s;
+    border: solid 1px;
+}
+.btn:hover{
+    transition: 0.3s;
+    color:#F0F3BD;
+    background: #05668D;
+}
 .card-header{
     border: none;
 }

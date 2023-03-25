@@ -1,6 +1,6 @@
 <template>
 
-  <div class="container text-center">
+  <div class="container text-center mt-5">
 
     <h1>Contact Us</h1>
 
@@ -110,7 +110,7 @@
 
               <p>Contact:(021) 1233 562</p>
               
-              <p>Email: styletto's@mail.com</p>
+              <p>Email: eternal_caskets@gmail.com</p>
 
         </div>
 
@@ -125,11 +125,18 @@
 </script>
 
 <style scoped>
-
 .btn{
   border-radius: 25px;
   background-color: #62c5ec;
-  color: #F0F3BD;
+  color: #05668D;
+  transition: all 0.4s;
+  border: solid 1px;
+}
+
+.btn:hover{
+  transition: 0.3s;
+  color:#F0F3BD;
+  background: #05668D;
 }
 .form{
   background-color: #05668D;

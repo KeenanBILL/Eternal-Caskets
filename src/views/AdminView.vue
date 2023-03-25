@@ -1,8 +1,14 @@
 <template>
 
 <div class="container mt-5 mb-5">
+
+    <div v-if="Products == undefined">
+
+        <LoaderComp/>
+
+    </div>
     
-    <h1>Products Table</h1>
+    <h1 v-else>Products Table</h1>
 
     <table class="table">
     
@@ -50,7 +56,7 @@
     
     <router-link to="/addProduct">
     
-        <button type="button" class="btnA" >Add Product</button>
+        <button type="button" class="btn" >Add Product</button>
     
     </router-link>
     
@@ -96,7 +102,7 @@
     
             <td><button type="button" class="btn" >Edit</button></td>
     
-            <td><button type="button" @click="removeProd(item.prodID)" class="btn">Delete</button></td>
+            <td><button type="button" @click="removeUser(item.userID)" class="btn">Delete</button></td>
     
         </tr>
         
@@ -112,8 +118,12 @@
 
 import { computed } from "@vue/runtime-core";
 import { useStore } from "vuex";
+import LoaderComp from "@/components/LoaderComp.vue";
 
 export default {
+    components: {
+            LoaderComp
+        },
 setup() {
     const store = useStore();
     store.dispatch("fetchProducts");
@@ -129,6 +139,10 @@ setup() {
         removeProd(id){
             this.$store.dispatch('removeProduct', id);
             location.reload()
+        },
+        removeUser(id){
+            this.$store.dispatch('removeUser', id);
+            location.reload()
         }
     }
 };
@@ -138,8 +152,16 @@ setup() {
 <style scoped>
 .btn{
     border-radius: 25px;
-    background-color: #05668D;
-    color: #F0F3BD;
+    background-color: #62c5ec;
+    color: #05668D;
+    transition: all 0.4s;
+    border: solid 1px;
+}
+
+.btn:hover{
+    transition: 0.3s;
+    color:#F0F3BD;
+    background: #05668D;
 }
 
 td{
@@ -157,15 +179,6 @@ th{
 img{
     width: 3vw;
     height: 5vh;
-}
-
-.btnA{
-    border: none;
-    border-radius: 25px;
-    width: 18%;
-    background-color: #05668D;
-    color: #F0F3BD;
-    margin-left: 3%;
 }
 
 .container{

@@ -64,7 +64,7 @@
 
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
 
-                <button class="btn btn-outline-success" type="submit">Search</button>
+                <button class="btn mx-2" type="submit">Search</button>
 
                 <button class="btn"><i class="bi bi-cart-fill"></i></button>
 
@@ -89,8 +89,18 @@
 </script>
 
 <style>
-button .btn dropdown-toggle{
-background-color: #45b6c5;
+.btn{
+    border-radius: 25px;
+    background-color: #62c5ec;
+    color: #05668D;
+    transition: all 0.4s;
+    border: solid 1px;
+}
+
+.btn:hover{
+    transition: 0.3s;
+    color:#F0F3BD;
+    background: #05668D;
 }
 
 .navbar {
@@ -106,6 +116,10 @@ background-color: #45b6c5;
 
 .nav-item{
     text-decoration: none;
+}
+
+.nav-item:hover{
+    scale: 1.11;
 }
 .navbar a {
     font-weight: bold;
@@ -128,16 +142,16 @@ background-color: #45b6c5;
 }
 .btn a:hover {
     text-decoration: none;
-    color: #05668D;
+    color: #F0F3BD;
 }
 .btn a.router-link-exact-active {
-    color: #05668D;
+    color: #F0F3BD;
     text-decoration: none;
 }
 
 .bi{
     font-size: 25px;
-    color:#05668D;
+    color:#F0F3BD;
 }
 
 </style>

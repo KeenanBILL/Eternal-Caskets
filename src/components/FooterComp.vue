@@ -37,14 +37,9 @@
 </script>
 
 <style scoped>
-
-.social-links a{
-    color: #31532C;
-    font-size: 20px;
-    transition: .6s;
-}
-.social-links a:hover{
-    transform: scale(1.3);
-    color: #FBC403;
+i:hover {
+    text-decoration: none;
+    color: #05668D;
+    transition:.6s;
 }
 </style>

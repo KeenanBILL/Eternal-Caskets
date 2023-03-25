@@ -120,6 +120,29 @@
 
 <style scoped>
 
+h1 {
+    animation-duration: 2.4s;
+    animation-name: slidein;
+}
+
+@keyframes slidein {
+    from {
+    margin-left: 100%;
+    width: 250%;
+    }
+
+    70% {
+    font-size: 300%;
+    margin-left: 25%;
+    width: 150%;
+    }
+
+    to {
+    margin-left: 0%;
+    width: 100%;
+    }
+}
+
 .bi{
     font-size: 40px;
     color:#05668D;

@@ -95,9 +95,16 @@
 
         .btn{
             border-radius: 25px;
-            background-color: #05668D;
-            color: #F0F3BD;
+            background-color: #62c5ec;
+            color: #05668D;
             transition: all 0.4s;
+            border: solid 1px;
+        }
+        
+        .btn:hover{
+            transition: 0.3s;
+            color:#F0F3BD;
+            background: #05668D;
         }
 
     </style>

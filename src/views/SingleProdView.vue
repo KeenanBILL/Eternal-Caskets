@@ -25,6 +25,7 @@
 </template>
 
 <script>
+
     export default {
         name: "SingleProd",
         computed: {
@@ -34,7 +35,8 @@
     },
     created() {
     this.$store.dispatch("SingleProd", this.$route.params.id)
-    }
+    },
+    
     };
 </script>
 

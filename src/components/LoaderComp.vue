@@ -34,7 +34,7 @@
 
 .lds-ring {
   display: inline-block;
-  position: relative;
+  position: relative; 
   width: 80px;
   height: 80px;
 }
@@ -51,7 +51,7 @@
   border-color: #fff transparent transparent transparent;
 }
 .lds-ring div:nth-child(1) {
-  animation-delay: -0.45s;
+  animation-delay: -0.40s;
 }
 .lds-ring div:nth-child(2) {
   animation-delay: -0.3s;

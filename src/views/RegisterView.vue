@@ -2,7 +2,7 @@
 
     <div class="container mb-5">
 
-        <form class="form" @submit.prevent="$event=> addUser()">
+        <form class="form" @submit.prevent="addUser">
 
             <h1>Register</h1>
 
@@ -75,13 +75,39 @@
 </template>
 
 <script>
+// import {computed} from "@vue/runtime-core";
+// import { useStore } from "vuex";
 
     export default {
 
+    //     data() {
+    //         const payload = {
+    //                 firstName: "",
+    //                 lastName: "",
+    //                 genDer: "",
+    //                 cellNumb:"",
+    //                 userPass:"",
+    //                 emailAdd:"",
+    //                 userRole:"user",
+    //                 userProf:"https://i.postimg.cc/fLG4sjtQ/6596121-removebg-preview.png"
+    //         };
+    //     const store = useStore();
+
+    //     const userMsg = computed(()=>store.state.message)
+
+    //     return {
+    //         payload, userMsg
+    //     }
+    // },
+    //     method: {
+    //         addUser() {
+    //             this.$store.dispatch("addUser", this.payload)
+    //         }
+    //     }
         data() {
-            return {
-                payload: {
-                    firstName: "",
+    return {
+        payload: {
+            firstName: "",
                     lastName: "",
                     genDer: "",
                     cellNumb:"",
@@ -89,21 +115,20 @@
                     emailAdd:"",
                     userRole:"user",
                     userProf:"https://i.postimg.cc/fLG4sjtQ/6596121-removebg-preview.png"
-                },
-            }
         },
-        methods: {
-            addUser() {
-                if(this.payload) {
-                    console.log("Password not valid.");
-                }
-            else {
-                this.$store.dispatch("addUser", this.payload);
-            }
-        }
-        
     }
-};
+},
+methods: {
+    addUser() {
+        if(this.payload.results !== this.data) {
+            alert("User registered.")
+        }
+        else {
+        this.$store.dispatch("addUser", this.payload);
+        }
+    }
+}
+}
 </script>
 
 <style scoped>
