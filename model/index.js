@@ -213,19 +213,20 @@ class Product {
 // =============================Cart Class===============================================
 
 class Cart {
-    fetchProduct(req, res) {
-        const strQry = `SELECT prodID, prodName, prodDes, cateGory, price, prodQuantity, imgURL
-        FROM Products
-        WHERE prodID = ?;`;
+    fetchCart(req, res) {
+        const strQry = `SELECT *
+        FROM Checkout INNER JOIN Products
+        on Checkout.prodID = Products.prodID
+        WHERE Checkout.userID = ${req.params.id}`;
         db.query(strQry, [req.params.id], (err, results)=> {
             if(err) throw err;
             res.status(200).json({results: results})
         });
     }
-    addProduct(req, res) {
+    addToCart(req, res) {
         const strQry = 
         `
-        INSERT INTO Products
+        INSERT INTO Checkout
         SET ?;
         `;
         db.query(strQry,[req.body],
@@ -233,13 +234,13 @@ class Cart {
                 if(err){
                     res.status(400).json({err: "There was trouble adding a product."});
                 }else {
-                    res.status(200).json({msg: "New product was added."});
+                    res.status(200).json({msg: "New product was added to Checkout."});
                 }
             }
         );    
 
     }
-    updateProd(req, res) {
+    updateCart(req, res) {
         const strQry = 
         `
         UPDATE Products
@@ -256,7 +257,7 @@ class Cart {
             }
         );   
     }
-    removeProduct(req, res) {
+    removeCart(req, res) {
         const strQry = 
         `
         DELETE FROM Products
