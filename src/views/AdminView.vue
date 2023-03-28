@@ -72,13 +72,15 @@
     
         <tr>
     
-            <th scope="col">Image</th>
+            <th scope="col">Profile Image</th>
     
-            <th scope="col">Product Name</th>
+            <th scope="col">First Name</th>
     
-            <th scope="col">Price</th>
+            <th scope="col">Last Name</th>
+            
+            <th scope="col">Gender</th>
     
-            <th scope="col">Product Description</th>
+            <th scope="col">Email Address</th>
     
             <th scope="col">Edit</th>
     
@@ -97,6 +99,8 @@
             <td> {{item.firstName}}</td>
     
             <td> {{item.lastName}}</td>
+
+            <td> {{item.genDer}}</td>
     
             <td>{{item.emailAdd}}</td>
     
